@@ -9,62 +9,15 @@
 <link rel="stylesheet" href="style/standard/jwgl.css" type="text/css" media="all">
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
 </head>
-<body class="login_bg">
+<body class="login_bg" onload="showtime()">
 	<form>
 		<div class="login_main">
-			<div class="login_logo">
-				<img src="#" alt="教务管理系统">
-			</div>
+			<c:import url="top.jsp" />
 			<div class="login_left">
 				<img class="login_pic" src="#" alt="左半边">
 			</div>
-			<div class="login_right">
-				<dl>
-					<dt class="uesr">
-						<label>用户名：</label>
-					</dt>
-					<dd>
-						<input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor">
-					</dd>
-					<dt class="passw">
-						<label>密　码：</label>
-					</dt>
-					<dd class="yzm">
-						<input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor">
-					</dd>
-					<dd>
-						<table id="RadioButtonList1" border="0">
-							<tbody>
-								<tr>
-									<td>
-										<input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="管理员" tabindex="3">
-										<label for="RadioButtonList1_0">管理员</label>
-									</td>
-									<td>
-										<input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="3">
-										<label for="RadioButtonList1_1">教师</label>
-									</td>
-									<td>
-										<input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="3">
-										<label for="RadioButtonList1_2">学生</label>
-									</td>
-									<td>
-										<input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="访客" tabindex="3">
-										<label for="RadioButtonList1_3">访客</label>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</dd>
-					<dd>
-						<input type="submit" name="Button1" value="" id="Button1" class="btn_dl">
-						<input type="submit" name="Button2" value="" id="Button2" class="btn_cz" onclick="window.close();">
-					</dd>
-				</dl>
-			</div>
-			<div class="login_copyright">
-				Copyright © 木得版权
-			</div>
+			<c:import url="login.jsp" />
+			<c:import url="copyright.jsp" />
 		</div>
 	</form>
 </body>
