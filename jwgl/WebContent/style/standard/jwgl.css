@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+@import url(base.css);/*全局公共基础样式*/
+@import url(module.css);/*模块结构样式*/
+@import url(forms.css);/*表单表格样式*/
+@import url(page.css);/*特殊页面样式*/
+/*=========================*/
