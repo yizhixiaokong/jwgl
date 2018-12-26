@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
 </head>
 <body class="login_bg" onload="showtime()">
-	<form>
+	<form action="#" method="post" onsubmit="return check(this);">
 		<div class="login_main">
 			<c:import url="top.jsp" />
 			<div class="login_left">
@@ -21,4 +21,18 @@
 		</div>
 	</form>
 </body>
+<script type="text/javascript">
+	function check(form){
+		if(form.RadioButtonList1.value!="访客"){
+			if(form.TextBox1.value==""||form.TextBox2.value==""){
+				alert("用户名或密码不能为空！");
+				form.TextBox1.focus();
+				form.TextBox2.focus();
+				return false;
+			}
+			return true;
+		}	
+		return true;
+	}
+</script>
 </html>
