@@ -14,7 +14,7 @@
 		<div class="login_main">
 			<c:import url="top.jsp" />
 			<div class="login_left">
-				<img class="login_pic" src="#" alt="左半边">
+				
 			</div>
 			<c:import url="login.jsp" />
 			<c:import url="copyright.jsp" />

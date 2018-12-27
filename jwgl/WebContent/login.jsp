@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="login_right">
-				<dl>
+				<dl style="color: black;text-shadow:1px 1px 1px #FFFFFF,1px -1px 1px #FFFFFF,-1px 1px 1px #FFFFFF;-1px -1px 1px #FFFFFF";">
 					<dt class="uesr">
 						<label>用户名：</label>
 					</dt>
