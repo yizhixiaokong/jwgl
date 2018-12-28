@@ -7,13 +7,13 @@
 						<label>用户名：</label>
 					</dt>
 					<dd>
-						<input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor">
+						<input name="userName" type="text" id="userName" tabindex="1" class="text_nor">
 					</dd>
 					<dt class="passw">
 						<label>密　码：</label>
 					</dt>
 					<dd class="yzm">
-						<input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor">
+						<input name="userPswd" type="password" id="userPswd" tabindex="2" class="text_nor">
 					</dd>
 					<dd>
 						<table id="RadioButtonList1" border="0">

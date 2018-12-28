@@ -10,7 +10,16 @@
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
 </head>
 <body class="login_bg" onload="showtime()">
-	<form action="#" method="post" onsubmit="return check(this);">
+	<%
+	    Object message = request.getAttribute("message");
+	    if(message!=null && !"".equals(message)){
+	
+	 %>
+	     <script type="text/javascript">
+	         alert("<%=message%>");
+	     </script>
+	 <% } %>
+	<form action="Login" method="post" onsubmit="return check(this);">
 		<div class="login_main">
 			<c:import url="top.jsp" />
 			<div class="login_left">
@@ -24,10 +33,10 @@
 <script type="text/javascript">
 	function check(form){
 		if(form.RadioButtonList1.value!="访客"){
-			if(form.TextBox1.value==""||form.TextBox2.value==""){
+			if(form.userName.value==""||form.userPswd.value==""){
 				alert("用户名或密码不能为空！");
-				form.TextBox1.focus();
-				form.TextBox2.focus();
+				form.userName.focus();
+				form.userPswd.focus();
 				return false;
 			}
 			return true;
