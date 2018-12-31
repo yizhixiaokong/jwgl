@@ -4,3 +4,21 @@
 @import url(forms.css);/*表单表格样式*/
 @import url(page.css);/*特殊页面样式*/
 /*=========================*/
+#mainDiv{
+	_padding-left:5px;
+}
+#leftDiv{	
+	display:none;
+}
+#mainDiv>#rightDiv{
+	left:5px;
+}
+#bodyDiv {
+	_padding-top:100px;
+}
+#headDiv{
+	height:100px;
+}
+#bodyDiv>#mainDiv {
+	top:100px;
+}

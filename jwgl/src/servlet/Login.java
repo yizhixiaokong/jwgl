@@ -92,7 +92,7 @@ public class Login extends HttpServlet {
 						if(rols==0){
 							message+="访客您好！";
 							session.setAttribute("sucess", message);
-							response.sendRedirect("text.jsp");
+							response.sendRedirect("vis_main.jsp");
 						}else if(rols==1){
 							message+="管理员";
 							message+=name;

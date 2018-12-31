@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登陆</title>
+<title>登录</title>
 <link rel="stylesheet" href="style/standard/jwgl.css" type="text/css" media="all">
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
+<script src="js/showtime.js"></script>
 </head>
 <body class="login_bg" onload="showtime()">
 	<%
@@ -21,7 +22,7 @@
 	 <% } %>
 	<form action="Login" method="post" onsubmit="return check(this);">
 		<div class="login_main">
-			<c:import url="top.jsp" />
+			<c:import url="top1.jsp" />
 			<div class="login_left">
 				
 			</div>
