@@ -40,7 +40,8 @@
 	</a></li>
 	<c:choose>
 		<c:when test="${sessionScope.logoner.user_role == 0}">
-			<li class="top"><a href="logout.jsp" class="top_link"> <span class="down">立即登录</span>
+			<li class="top"><a href="logout.jsp" class="top_link"> <span
+					class="down">立即登录</span>
 			</a></li>
 		</c:when>
 		<c:otherwise>
@@ -95,7 +96,7 @@
 							<li><a>教学质量评价查询</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a>查询</a></li>
+							<li><a target="zhuti" href="cx.jsp">查询</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul></li>
@@ -120,6 +121,5 @@
 				</ul></li>
 		</c:otherwise>
 	</c:choose>
-
-
 </ul>
+<div class="tab"></div>

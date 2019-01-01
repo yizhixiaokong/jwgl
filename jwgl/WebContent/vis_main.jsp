@@ -23,17 +23,10 @@
  <%} %>
 	<div id="bodyDiv">
 		<div id="headDiv">
-		
 			<c:import url="top_main.jsp" />
-			
-			<div class="tab">
-				
-			</div>
 		</div>
 		<div id="mainDiv">
-			<div id="rightDiv">
-				
-			</div>
+			<c:import url="main_main.jsp" />
 		</div>
 		<div id="footerDiv">
 			<div class="footer">

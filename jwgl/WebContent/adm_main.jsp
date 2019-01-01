@@ -26,7 +26,7 @@
 			<c:import url="top_main.jsp" />
 		</div>
 		<div id="mainDiv">
-			
+			<c:import url="main_main.jsp" />
 		</div>
 		<div id="footerDiv">
 			<div class="footer">

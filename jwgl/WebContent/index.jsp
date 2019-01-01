@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="style/standard/jwgl.css" type="text/css" media="all">
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
 <script src="js/showtime.js"></script>
+<script src="js/iframeautoheight.js"></script>
 <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 </head>
 <body class="login_bg" onload="showtime()">
