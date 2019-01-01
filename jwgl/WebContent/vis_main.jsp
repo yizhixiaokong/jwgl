@@ -5,10 +5,11 @@
 <html class="main_html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>访客登录</title>
 <link rel="stylesheet" href="style/standard/jwgl.css" type="text/css" media="all">
 <link rel="stylesheet" href="style/base/jwgl.css" type="text/css" media="all">
 <script src="js/showtime.js"></script>
-<title>访客登录</title>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 </head>
 <body  class="mainbody" onload="showtime()">
 <%
@@ -23,18 +24,7 @@
 	<div id="bodyDiv">
 		<div id="headDiv">
 		
-			<!-- 顶部 -->
-			<div class="head">
-				<div class="logo">
-					<img src="logo/main_jw.png" alt="学校图标">
-				</div>
-				<div  id="time"></div>
-			</div>
-			
-			<!-- 导航 -->
-			<ul class="nav">
-				
-			</ul>
+			<c:import url="top_main.jsp" />
 			
 			<div class="tab">
 				

@@ -55,7 +55,16 @@ public class Login extends HttpServlet {
 			message+="登录！";
 			session.setAttribute("logoner",logoner);
 			session.setAttribute("sucess", message);
-			response.sendRedirect("text.jsp");
+			if(be.getUser_role()==1){
+				response.sendRedirect("adm_main.jsp");
+			}else if(be.getUser_role()==2){
+				response.sendRedirect("tea_main.jsp");
+			}else if(be.getUser_role()==3){
+				response.sendRedirect("stu_main.jsp");
+			}else {
+				response.sendRedirect("index.jsp");
+			}
+			
 		}
 		else{																//用户没有登录
 			String name=Change.toChinese(request.getParameter("userName"));
@@ -98,19 +107,19 @@ public class Login extends HttpServlet {
 							message+=name;
 							message+="您好！";
 							session.setAttribute("sucess", message);
-							response.sendRedirect("text.jsp");
+							response.sendRedirect("adm_main.jsp");
 						}else if(rols==2){
 							message+="号码为：";
 							message+=name;
 							message+="的老师您好！";
 							session.setAttribute("sucess", message);
-							response.sendRedirect("text.jsp");
+							response.sendRedirect("tea_main.jsp");
 						}else {
 							message+="号码为：";
 							message+=name;
 							message+="的同学您好！";
 							session.setAttribute("sucess", message);
-							response.sendRedirect("text.jsp");
+							response.sendRedirect("stu_main.jsp");
 						}	
 					}
 				}catch (SQLException e) {
