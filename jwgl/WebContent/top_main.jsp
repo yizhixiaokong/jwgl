@@ -86,8 +86,16 @@
 							class="down">网上选课</span>
 					</a>
 						<ul class="sub">
-							<li><a>公共选修课</a></li>
-							<li><a>专业选修课</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="querytype" />
+								<c:param name="type" value="1" />
+								</c:url>">公共选修课</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="querytype" />
+								<c:param name="type" value="3" />
+								</c:url>">专业选修课</a></li>
 						</ul></li>
 					<li class="top"><a href="#" class="top_link"> <span
 							class="down">教务质量评价</span>

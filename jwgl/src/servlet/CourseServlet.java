@@ -46,7 +46,15 @@ public class CourseServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if ("queryoldnew".equals(action)) {
+		}else if("querytype".equals(action)){
+			try {
+				this.querytype(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if ("queryoldnew".equals(action)) {
 			String oldnew = request.getParameter("oldnew");
 			if ("old".equals(oldnew)) {
 				try {
@@ -128,6 +136,17 @@ public class CourseServlet extends HttpServlet {
 		List<CourseVMBean> list = coursevmdao.executeQueryOldNew(new Object[] { "old" });
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("kcgl.jsp").forward(request, response); // 重定向页面
+	}
+	public void querytype(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		response.setHeader("content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		CourseVMDao coursevmdao = new CourseVMDao();
+		Integer type = Change.strToInt(Change.toChinese(request.getParameter("type")));
+		List<CourseVMBean> list = coursevmdao.executeQueryType(new Object[]{type});
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("wsxk.jsp").forward(request, response); // 重定向页面
 	}
 
 	public void add(HttpServletRequest request, HttpServletResponse response)

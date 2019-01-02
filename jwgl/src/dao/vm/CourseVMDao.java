@@ -77,6 +77,40 @@ public class CourseVMDao {
 		}
 		return list;
 	}
+	public List<CourseVMBean> executeQueryType(Object[] params) throws SQLException{
+		List<CourseVMBean> list = new ArrayList<>(); // 创建List
+		CourseDao courseDao = new CourseDao();
+		System.out.println("----------------"+params[0]);
+		List<CourseBean> list2=courseDao.executeQueryType(params);
+		for (CourseBean courseBean : list2) {
+			//创建一个CourseVMBean类型的对象用于接收查询结果
+			CourseVMBean coursevm = new CourseVMBean();
+			
+			Integer id = courseBean.getId();
+			
+			//这里要查出这门课有哪些人选了
+			StucourseDao stucoursedao = new StucourseDao();
+			List<UserBean> stu = new ArrayList<>();
+			List<StucourseBean> stuid = stucoursedao.executeQueryBycourse(new Object[]{id});
+			for (StucourseBean stucourseBean : stuid) {
+				UserDao s = new UserDao();
+				stu.add(s.executeQuerybyId(new Object[]{stucourseBean.getStu_id()}));
+			}
+			//这里要查出这门课哪些老师教
+			TeacourseDao teacoursedao = new TeacourseDao();
+			List<UserBean> tea = new ArrayList<>();
+			List<TeacourseBean> teaid = teacoursedao.executeQueryBycourse(new Object[]{id});
+			for (TeacourseBean teacourseBean : teaid) {
+				UserDao s = new UserDao();
+				tea.add(s.executeQuerybyId(new Object[]{teacourseBean.getTea_id()}));
+			}
+			coursevm.setCourse(courseBean);
+			coursevm.setStudents(stu);
+			coursevm.setTeachers(tea);
+			list.add(coursevm);
+		}
+		return list;
+	}
 	public void executeAdd(Object[] params) throws SQLException{
 		String num = (String) params[0];
 		String name = (String) params[1];
