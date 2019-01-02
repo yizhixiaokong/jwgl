@@ -4,7 +4,7 @@
 <%@page import="bean.UserBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div id="rightDiv">
-	<div>
+	<div >
 		
 		
 		<iframe id="iframeautoheight" class="rightcontiframe" name="zhuti"
@@ -12,8 +12,8 @@
 			<c:url value="NewsServlet">
 			<c:param name="action" value="query" />
 			</c:url>" 
-			scrolling="no" frameborder="0"
-			marginwidth="0" marginheight="0">
+			scrolling="yes" frameborder="0"
+			marginwidth="0" marginheight="0" height="400" >
 				
 			 </iframe>
 	</div>

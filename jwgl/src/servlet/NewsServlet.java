@@ -43,6 +43,22 @@ public class NewsServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if("add".equals(action)){
+			try {
+				this.add(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if("delete".equals(action)){
+			try {
+				this.delete(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		else{
 			try {
 				this.query(request, response);
@@ -69,6 +85,28 @@ public class NewsServlet extends HttpServlet {
 		List<NewsBean> list = newsDao.executeQuery(null);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("tzgg.jsp").forward(request, response);		//重定向页面
+	}
+	public void add(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		response.setHeader("content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		String name=Change.toChinese(request.getParameter("newsName"));
+		String danwei=Change.toChinese(request.getParameter("newsDanwei"));
+		String timee=Change.toChinese(request.getParameter("newsTime"));
+		NewsDao newsDao = new NewsDao();
+		newsDao.executeAdd(new Object[]{name,danwei,timee});
+		this.query(request, response);
+	}
+	public void delete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		response.setHeader("content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		Integer id=Change.strToInt(request.getParameter("id"));
+		NewsDao newsDao = new NewsDao();
+		newsDao.executeDelete(new Object[]{id});
+		this.query(request, response);
 	}
 
 }

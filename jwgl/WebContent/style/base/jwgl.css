@@ -17,8 +17,10 @@
 	_padding-top:100px;
 }
 #headDiv{
+	background: url(images/bg_bg.jpg);
 	height:100px;
 }
 #bodyDiv>#mainDiv {
+	background: url(images/bg_bg.jpg);
 	top:100px;
 }

@@ -36,7 +36,11 @@
 
 <!-- 导航 -->
 <ul class="nav">
-	<li class="top"><a class="top_link"> <span class="down">通知公告</span>
+	<li class="top"><a class="top_link" target="zhuti"
+		href="<c:url value="NewsServlet">
+			<c:param name="action" value="query" />
+			</c:url>">
+			<span class="down">通知公告</span>
 	</a></li>
 	<c:choose>
 		<c:when test="${sessionScope.logoner.user_role == 0}">
@@ -51,8 +55,8 @@
 							class="down">课程管理</span>
 					</a>
 						<ul class="sub">
-							<li><a>公共选修课</a></li>
-							<li><a>专业选修课</a></li>
+							<li><a>本学期课程</a></li>
+							<li><a>下学期课程</a></li>
 						</ul></li>
 				</c:when>
 				<c:when test="${sessionScope.logoner.user_role == 2}">

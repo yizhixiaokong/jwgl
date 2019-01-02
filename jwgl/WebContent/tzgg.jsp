@@ -21,10 +21,17 @@
 							<tr>
 								<td>
 									<div class="movebox">
-										<h2 style="background: #C7DEFC">
-											<span class="titilebox"> <em> 通知公告 </em>
-											</span>
-										</h2>
+										<form action="addnews.jsp" method="post">
+											<h2 style="background: #C7DEFC;opacity: 0.75;">
+												<span class="titilebox"> <em> 通知公告 </em>
+												</span>
+												<c:if test="${sessionScope.logoner.user_role == 1}">
+													<input type="hidden" name="id" value="${news.id }">
+													<input type="submit" value="添加"
+														style="float: right; margin-right: 2%;">
+												</c:if>
+											</h2>
+										</form>
 										<div class="movebox_con">
 											<table class="datelist" cellspacing="0" cellpadding="3"
 												border="0" id="DataList1__ctl0_dataGrid1" width="100%">
@@ -36,15 +43,19 @@
 													</tr>
 													<c:forEach var="news" items="${requestScope.list }">
 														<tr>
-															<form action="#" method="post">
-															<td><c:out value="${news.news_name }" /></td>
-															<td><c:out value="${news.news_danwei }" /></td>
-															<td><c:out value="${news.news_time }" /> <c:if
-																	test="${sessionScope.logoner.user_role == 1}">
-																	<input type="hidden" name="id" value="${news.id }">
-																	<input type="submit" value="删除"
-																		style="float: right; margin-right: 2%;">
-																</c:if></td>
+															<form
+																action="<c:url value="NewsServlet">
+																	<c:param name="action" value="delete" />
+																		</c:url>"
+																method="post">
+																<td><c:out value="${news.news_name }" /></td>
+																<td><c:out value="${news.news_danwei }" /></td>
+																<td><c:out value="${news.news_time }" /> <c:if
+																		test="${sessionScope.logoner.user_role == 1}">
+																		<input type="hidden" name="id" value="${news.id }">
+																		<input type="submit" value="删除"
+																			style="float: right; margin-right: 2%;">
+																	</c:if></td>
 															</form>
 														</tr>
 													</c:forEach>

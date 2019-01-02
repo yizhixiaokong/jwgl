@@ -73,6 +73,7 @@ a.specialogo {
 
 /*===================横向导航样式====================*/
 .nav {
+	opacity: 0.75;
 	width:100%;
 	z-index: 500;
 	position: relative;

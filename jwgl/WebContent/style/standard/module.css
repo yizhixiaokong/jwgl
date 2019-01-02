@@ -130,7 +130,7 @@
 
 /*====================报头样式==================*/
 .head {
-	background: #fff url(images/head_bg.gif) repeat-x left top;
+	background: url(images/head_bg.gif) repeat-x left top;
 }
 
 /*====================学校图片====================*/
@@ -478,7 +478,7 @@ p.toolbox_fot em {
 
 /*=======主内容顶部框=======*/
 .main_box {
-	background: #fff url(images/con_midright.gif) repeat-y right top;
+	background:  url(images/con_midright.gif) repeat-y right top;
 }
 .mid_box {
 	background: url(images/con_midleft.gif) repeat-y left top;
@@ -544,7 +544,7 @@ p.toolbox_fot em {
 	}
 /*==================尾部内容样式==========*/
 .footer {
-	background: #fff url(images/footer_r.gif) no-repeat right bottom;
+	background: url(images/footer_r.gif) no-repeat right bottom;
 }
 .footer p {
 	background: url(images/footer_l.gif) no-repeat left bottom;
