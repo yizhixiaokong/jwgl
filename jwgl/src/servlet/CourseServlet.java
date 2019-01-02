@@ -53,6 +53,13 @@ public class CourseServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}else if("sc".equals(action)){
+			try {
+				this.addsc(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if ("queryoldnew".equals(action)) {
 			String oldnew = request.getParameter("oldnew");
@@ -146,6 +153,7 @@ public class CourseServlet extends HttpServlet {
 		Integer type = Change.strToInt(Change.toChinese(request.getParameter("type")));
 		List<CourseVMBean> list = coursevmdao.executeQueryType(new Object[]{type});
 		request.setAttribute("list", list);
+		request.setAttribute("type", Change.toChinese(request.getParameter("type")));
 		request.getRequestDispatcher("wsxk.jsp").forward(request, response); // 重定向页面
 	}
 
@@ -162,5 +170,19 @@ public class CourseServlet extends HttpServlet {
 		CourseVMDao coursevmdao = new CourseVMDao();
 		coursevmdao.executeAdd(new Object[] { num, name, description, type, tea_id });
 		this.querynew(request, response);
+	}
+	
+	public void addsc(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		response.setHeader("content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		String course_id = Change.toChinese(request.getParameter("course_id"));
+		String stu_id = Change.toChinese(request.getParameter("stu_id"));
+		StucourseDao stucoursedao = new StucourseDao();
+		stucoursedao.executeAdd(new Object[]{course_id, stu_id});
+		String type = Change.toChinese(request.getParameter("type"));
+		request.setAttribute("type", type);
+		this.querytype(request, response);
 	}
 }

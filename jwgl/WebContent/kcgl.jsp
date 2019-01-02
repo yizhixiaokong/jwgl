@@ -26,7 +26,6 @@
 												<span class="titilebox"> <em> 查看课程 </em>
 												</span>
 												<c:if test="${sessionScope.logoner.user_role == 1}">
-													<input type="hidden" name="id" value="${courses.id }">
 													<input type="submit" value="添加"
 														style="float: right; margin-right: 2%;">
 												</c:if>

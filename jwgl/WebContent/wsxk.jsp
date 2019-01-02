@@ -34,6 +34,7 @@
 														<td>课程名称</td>
 														<td>课程类型</td>
 														<td>任课教师</td>
+														<td>是否选课</td>
 													</tr>
 													<c:forEach var="courses" items="${requestScope.list }">
 														<c:forEach var="tea" items="${courses.teachers }">
@@ -46,25 +47,38 @@
 															</c:forEach>
 															<c:if test="${s == true }">
 																<tr>
-																	<td><c:out value="${courses.course.num }" /></td>
-																	<td><c:out value="${courses.course.name }" /></td>
-																	<td><c:choose>
-																			<c:when test="${courses.course.type==0}">
-																				<c:out value="公共必修课" />
-																			</c:when>
-																			<c:when test="${courses.course.type==1}">
-																				<c:out value="公共选修课" />
-																			</c:when>
-																			<c:when test="${courses.course.type==2}">
-																				<c:out value="专业必修课" />
-																			</c:when>
-																			<c:when test="${courses.course.type==3}">
-																				<c:out value="专业选修课" />
-																			</c:when>
-																			<c:otherwise>
-																			</c:otherwise>
-																		</c:choose></td>
-																	<td><c:out value="${tea.user_name }" /></td>
+																	<form
+																		action="<c:url value="CourseServlet">
+																		<c:param name="action" value="sc" />
+																		<c:param name="type" value="${requestScope.type }" />
+																	</c:url>"
+																		method="post">
+																		<td><c:out value="${courses.course.num }" /></td>
+																		<td><c:out value="${courses.course.name }" /></td>
+																		<td><c:choose>
+																				<c:when test="${courses.course.type==0}">
+																					<c:out value="公共必修课" />
+																				</c:when>
+																				<c:when test="${courses.course.type==1}">
+																					<c:out value="公共选修课" />
+																				</c:when>
+																				<c:when test="${courses.course.type==2}">
+																					<c:out value="专业必修课" />
+																				</c:when>
+																				<c:when test="${courses.course.type==3}">
+																					<c:out value="专业选修课" />
+																				</c:when>
+																				<c:otherwise>
+																				</c:otherwise>
+																			</c:choose></td>
+																		<td><c:out value="${tea.user_name }" /></td>
+																		<td><input type="hidden" name="course_id"
+																			value="${courses.course.id }"> <input
+																			type="hidden" name="stu_id"
+																			value="${sessionScope.logoner.id }"> <input
+																			type="submit" value="添加"
+																			style="float: right; margin-right: 2%;"></td>
+																	</form>
 																</tr>
 															</c:if>
 														</c:forEach>
