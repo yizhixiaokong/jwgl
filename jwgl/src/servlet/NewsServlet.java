@@ -76,6 +76,9 @@ public class NewsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
+	
 	public void query(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 		response.setHeader("content-type", "text/html;charset=UTF-8");

@@ -19,12 +19,12 @@ public class NewsDao {
 		ResultSet rs=mydb.getRs();
 		if(rs!=null){
 			while(rs.next()){
-				NewsBean user=new NewsBean();
-				user.setId(rs.getInt(1));
-				user.setNews_name(rs.getString(2));
-				user.setNews_danwei(rs.getString(3));
-				user.setNews_time(rs.getString(4));
-				list.add(user);
+				NewsBean news=new NewsBean();
+				news.setId(rs.getInt(1));
+				news.setNews_name(rs.getString(2));
+				news.setNews_danwei(rs.getString(3));
+				news.setNews_time(rs.getString(4));
+				list.add(news);
 			}
 			rs.close();
 		}

@@ -55,8 +55,21 @@
 							class="down">课程管理</span>
 					</a>
 						<ul class="sub">
-							<li><a>本学期课程</a></li>
-							<li><a>下学期课程</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="queryoldnew" />
+								<c:param name="oldnew" value="old" />
+								</c:url>">本学期课程</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="queryoldnew" />
+								<c:param name="oldnew" value="new" />
+								</c:url>">下学期课程</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="query" />
+								</c:url>">全部课程</a>
+							</li>
 						</ul></li>
 				</c:when>
 				<c:when test="${sessionScope.logoner.user_role == 2}">

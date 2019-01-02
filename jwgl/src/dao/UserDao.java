@@ -20,6 +20,29 @@ public class UserDao {
 			logoner=(UserBean)list.get(0);
 		return logoner;		
 	}
+	
+	public UserBean executeQuerybyId(Object[] params) throws SQLException{
+		UserBean who=null;
+		String sql="select * from tb_user where id=?";
+		List list=getList(sql,params);
+		if(list!=null&&list.size()!=0)
+			who=(UserBean)list.get(0);
+		return who;	
+	}
+	
+	public List<UserBean> executeQuerybyRole(Object[] params) throws SQLException{
+		String sql="select * from tb_user where user_role=?";
+		List list=getList(sql,params);
+		return list;
+	}
+	
+	public void executeDelete(Object[] params) throws SQLException{
+		String sql="DELETE FROM tb_user WHERE id = ?";
+		DB mydb=new DB();
+		mydb.doPstm(sql,params);
+		return;
+	}
+	
 	private List getList(String sql,Object[] params) throws SQLException{
 		List list=null;
 		DB mydb=new DB();
