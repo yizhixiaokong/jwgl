@@ -97,7 +97,28 @@ public class CourseDao {
 		}
 		mydb.closed();
 		return list;
-		
+	}
+	public List<CourseBean> executeQueryByid(Object[] params) throws SQLException{
+		List<CourseBean> list = new ArrayList<>(); // 创建List
+		String sql="select * from tb_course where id = ? and time = 'new'";
+		DB mydb=new DB();
+		mydb.doPstm(sql,params);
+		ResultSet rs=mydb.getRs();
+		if(rs!=null){
+			while(rs.next()){
+				CourseBean course=new CourseBean();
+				course.setId(rs.getInt(1));
+				course.setNum(rs.getString(2));
+				course.setName(rs.getString(3));
+				course.setDescription(rs.getString(4));
+				course.setType(rs.getInt(5));
+				course.setTime(rs.getString(6));
+				list.add(course);
+			}
+			rs.close();
+		}
+		mydb.closed();
+		return list;
 	}
 	public void executeDelete(Object[] params) throws SQLException{
 		String sql="DELETE FROM tb_course WHERE id = ?";

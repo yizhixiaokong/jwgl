@@ -60,6 +60,13 @@ public class CourseServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}else if("xkqk".equals(action)){
+			try {
+				this.xkqk(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if ("queryoldnew".equals(action)) {
 			String oldnew = request.getParameter("oldnew");
@@ -184,5 +191,18 @@ public class CourseServlet extends HttpServlet {
 		String type = Change.toChinese(request.getParameter("type"));
 		request.setAttribute("type", type);
 		this.querytype(request, response);
+	}
+	
+	public void xkqk(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		response.setHeader("content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		CourseVMDao coursevmdao = new CourseVMDao();
+		Integer stu_id = Change.strToInt(Change.toChinese(request.getParameter("stu_id")));
+		System.out.println(stu_id);
+		List<CourseVMBean> list = coursevmdao.executeQueryXkqk(new Object[]{stu_id});
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("xkqk.jsp").forward(request, response); // 重定向页面
 	}
 }

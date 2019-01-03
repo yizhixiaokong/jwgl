@@ -113,7 +113,11 @@
 					<c:choose>
 						<c:when test="${sessionScope.logoner.user_role == 3}">
 							<li><a>成绩查询</a></li>
-							<li><a>选课情况查询</a></li>
+							<li><a target="zhuti"
+								href="<c:url value="CourseServlet">
+								<c:param name="action" value="xkqk" />
+								<c:param name="stu_id" value="${sessionScope.logoner.id }" />
+								</c:url>">选课情况查询</a></li>
 							<li><a>临时调课查询</a></li>
 						</c:when>
 						<c:when test="${sessionScope.logoner.user_role == 2}">
